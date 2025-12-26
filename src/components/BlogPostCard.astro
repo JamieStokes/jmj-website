@@ -1,0 +1,112 @@
+---
+// BlogPostCard.astro
+// Blog post preview card
+interface Props {
+  title: string;
+  date: Date;
+  summary: string;
+  slug: string;
+  tags?: string[];
+}
+
+const { title, date, summary, slug, tags = [] } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<article class="blog-card glow-border">
+  <time class="blog-date" datetime={date.toISOString()}>{formattedDate}</time>
+  <h3 class="blog-title">
+    <a href={`/blog/${slug}`}>{title}</a>
+  </h3>
+  <p class="blog-summary">{summary}</p>
+  {tags.length > 0 && (
+    <div class="blog-tags">
+      {tags.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+  )}
+  <a href={`/blog/${slug}`} class="blog-link">
+    Read more <span aria-hidden="true">→</span>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: transform var(--transition-base);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .blog-date {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-title {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    line-height: 1.3;
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .blog-title a:hover {
+    color: var(--accent-primary);
+  }
+
+  .blog-summary {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+    flex-grow: 1;
+  }
+
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .tag {
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    color: var(--accent-primary);
+    background-color: var(--accent-glow);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+  }
+
+  .blog-link {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .blog-link:hover {
+    color: var(--accent-secondary);
+  }
+</style>

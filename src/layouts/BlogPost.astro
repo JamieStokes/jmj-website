@@ -1,0 +1,214 @@
+---
+// BlogPost.astro
+// Blog post layout with article styling
+import BaseLayout from './BaseLayout.astro';
+import '../styles/syntax.css';
+
+interface Props {
+  title: string;
+  date: Date;
+  author: string;
+  tags: string[];
+  summary: string;
+}
+
+const { title, date, author, tags, summary } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={summary} currentPath="/blog">
+  <article class="blog-post">
+    <div class="container">
+      <header class="post-header">
+        <a href="/blog" class="back-link">
+          <span aria-hidden="true">←</span> Back to Blog
+        </a>
+
+        <h1 class="post-title">{title}</h1>
+
+        <div class="post-meta">
+          <time datetime={date.toISOString()}>{formattedDate}</time>
+          <span class="meta-separator">•</span>
+          <span class="post-author">{author}</span>
+          {tags.length > 0 && (
+            <>
+              <span class="meta-separator">•</span>
+              <div class="post-tags">
+                {tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </header>
+
+      <div class="post-content prose">
+        <slot />
+      </div>
+
+      <footer class="post-footer">
+        <a href="/blog" class="back-link">
+          <span aria-hidden="true">←</span> Back to Blog
+        </a>
+      </footer>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    padding: var(--space-12) 0 var(--space-20);
+  }
+
+  .post-header {
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-6);
+    transition: color var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .post-title {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .meta-separator {
+    color: var(--border-subtle);
+  }
+
+  .post-author {
+    color: var(--text-secondary);
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tag {
+    font-size: var(--text-xs);
+    color: var(--accent-primary);
+    background-color: var(--accent-glow);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Prose styles for article content */
+  .post-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .prose {
+    font-size: var(--text-base);
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--text-2xl);
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+  }
+
+  .prose :global(h3) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+    color: var(--text-primary);
+  }
+
+  .prose :global(h4) {
+    font-size: var(--text-lg);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-4);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-6);
+  }
+
+  .prose :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .prose :global(a) {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose :global(a:hover) {
+    color: var(--accent-secondary);
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--accent-primary);
+    padding-left: var(--space-4);
+    margin: var(--space-6) 0;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  .prose :global(pre) {
+    margin: var(--space-6) 0;
+  }
+
+  .prose :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: var(--space-6) 0;
+  }
+
+  .prose :global(hr) {
+    margin: var(--space-8) 0;
+  }
+
+  .post-footer {
+    max-width: 700px;
+    margin: var(--space-12) auto 0;
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-subtle);
+  }
+</style>

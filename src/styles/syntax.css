@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Syntax Highlighting - Dark Technical Theme
+   ========================================================================== */
+
+/* Code blocks in markdown content */
+.prose pre {
+  background-color: var(--bg-code);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  margin: var(--space-6) 0;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+/* Shiki/Astro syntax highlighting overrides */
+.astro-code {
+  background-color: var(--bg-code) !important;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+/* Token colors - matching dark technical theme */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--text-muted);
+}
+
+.token.punctuation {
+  color: var(--text-secondary);
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #ff6b6b;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--success);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: var(--warning);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--accent-primary);
+}
+
+.token.function,
+.token.class-name {
+  color: #ffd93d;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ff9f43;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Line numbers (if enabled) */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid var(--border-subtle);
+  padding-right: var(--space-3);
+  margin-right: var(--space-3);
+}
+
+.line-numbers-rows > span::before {
+  color: var(--text-muted);
+}
+
+/* Inline code in prose */
+.prose :not(pre) > code {
+  background-color: var(--bg-elevated);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+  color: var(--accent-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Code block language label */
+.code-block-wrapper {
+  position: relative;
+}
+
+.code-language {
+  position: absolute;
+  top: 0;
+  right: var(--space-4);
+  background-color: var(--bg-elevated);
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  text-transform: uppercase;
+}

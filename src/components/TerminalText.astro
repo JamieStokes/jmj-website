@@ -1,0 +1,41 @@
+---
+// TerminalText.astro
+// Animated typing effect with blinking cursor
+interface Props {
+  text: string;
+  tag?: 'h1' | 'h2' | 'h3' | 'span' | 'p';
+  class?: string;
+}
+
+const { text, tag: Tag = 'h1', class: className = '' } = Astro.props;
+---
+
+<Tag class:list={['terminal-text', className]}>
+  {text}<span class="cursor" aria-hidden="true">_</span>
+</Tag>
+
+<style>
+  .terminal-text {
+    font-family: var(--font-display);
+    display: inline-block;
+  }
+
+  .cursor {
+    display: inline-block;
+    color: var(--accent-primary);
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

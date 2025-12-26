@@ -1,0 +1,292 @@
+---
+// about.astro
+// About us page
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about JMJ Cloud, our mission, and the team behind Oracle technology solutions."
+  currentPath="/about"
+>
+  <section class="about-hero">
+    <div class="container">
+      <h1 class="page-title fade-in fade-in-1">About JMJ Cloud</h1>
+      <p class="page-subtitle fade-in fade-in-2">
+        Delivering expert Oracle solutions with modern architecture and clean code
+      </p>
+    </div>
+  </section>
+
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-content">
+        <h2 class="section-title fade-in fade-in-3">Our Mission</h2>
+        <p class="mission-text fade-in fade-in-4">
+          At JMJ Cloud, we believe that enterprise technology should be both powerful and accessible.
+          We specialize in Oracle solutions—ERP Cloud, APEX, E-Business Suite—helping organizations
+          modernize their systems while protecting their existing investments.
+        </p>
+        <p class="mission-text fade-in fade-in-5">
+          Our approach combines deep technical expertise with a commitment to clean, maintainable code.
+          We don't believe in quick fixes or workarounds. Every solution we build is designed to scale,
+          evolve, and serve your business for years to come.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title fade-in fade-in-2">Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member fade-in fade-in-3">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D5603AQGlp_EU_XqIAg/profile-displayphoto-shrink_200_200/B56ZO9.fWVGwAc-/0/1734059096300?e=2147483647&v=beta&t=1wrljEoXPjCcWk6KEx1FZwUNp0M7wRifubZama0eapE"
+            alt="Jamie Stokes"
+            class="member-photo"
+          />
+          <div class="member-content">
+            <h3 class="member-name">Jamie Stokes</h3>
+            <p class="member-title">Co-Founder, JMJ Cloud</p>
+            <p class="member-bio">
+              Jamie is a seasoned IT professional and accomplished leader with significant experience
+              in Oracle technology across the Austin and St. Louis areas. With expertise spanning ERP
+              systems, cloud solutions, and enterprise architecture, Jamie leads JMJ Cloud's strategic
+              vision and technical excellence.
+            </p>
+            <a href="https://www.linkedin.com/in/jamiestokes/" target="_blank" rel="noopener noreferrer" class="member-link">
+              View LinkedIn Profile →
+            </a>
+          </div>
+        </div>
+
+        <div class="team-member fade-in fade-in-4">
+          <img
+            src="https://media.licdn.com/dms/image/v2/C5603AQGS_uCicSIHCw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1516340923359?e=2147483647&v=beta&t=lEwKZJUvdlbSKNnI1YmIUAPigTJO-zcfl1L2lA10VAo"
+            alt="Matt Paine"
+            class="member-photo"
+          />
+          <div class="member-content">
+            <h3 class="member-name">Matt Paine</h3>
+            <p class="member-title">Co-Founder, JMJ Cloud</p>
+            <p class="member-bio">
+              Matt is an Oracle ERP Cloud Solution Architect with deep expertise in General Ledger, Accounts Payable,
+              Cloud Expenses, and Project Portfolio Management. Based in Austin, Matt brings extensive experience in Oracle Fusion
+              Cloud implementations and enterprise resource planning solutions, helping clients navigate complex cloud migrations
+              and optimizations.
+            </p>
+            <a href="https://www.linkedin.com/in/matt-paine-a12ab17/" target="_blank" rel="noopener noreferrer" class="member-link">
+              View LinkedIn Profile →
+            </a>
+          </div>
+        </div>
+
+        <div class="team-member fade-in fade-in-5">
+          <img
+            src="/images/jdixon_linkedin.jpeg"
+            alt="Jon Dixon"
+            class="member-photo"
+          />
+          <div class="member-content">
+            <h3 class="member-name">Jon Dixon</h3>
+            <p class="member-title">Retired Co-Founder, JMJ Cloud</p>
+            <p class="member-bio">
+              Jon is a thought leader and accomplished innovator who founded JMJ Cloud and spent years building and extending
+              Oracle solutions. A pioneer in Oracle APEX modernization, Jon helped enterprises bridge the gap between legacy systems
+              and modern cloud architecture. His work has been featured across Oracle community publications.
+            </p>
+            <a href="https://www.linkedin.com/in/dixonjd/" target="_blank" rel="noopener noreferrer" class="member-link">
+              View LinkedIn Profile →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-title fade-in fade-in-2">Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card glow-border fade-in fade-in-3">
+          <h3 class="value-title">Excellence</h3>
+          <p class="value-description">
+            We deliver solutions that are built to last, with clean code and thoughtful architecture.
+          </p>
+        </div>
+        <div class="value-card glow-border fade-in fade-in-4">
+          <h3 class="value-title">Expertise</h3>
+          <p class="value-description">
+            Deep knowledge of Oracle technology combined with modern development practices.
+          </p>
+        </div>
+        <div class="value-card glow-border fade-in fade-in-5">
+          <h3 class="value-title">Partnership</h3>
+          <p class="value-description">
+            We work closely with your team, understanding your business goals and constraints.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero {
+    padding: var(--space-20) 0 var(--space-16);
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .page-subtitle {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .mission-section {
+    padding: var(--space-16) 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    font-size: var(--text-3xl);
+  }
+
+  .mission-text {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-6);
+  }
+
+  .team-section {
+    padding: var(--space-16) 0;
+  }
+
+  .team-grid {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .team-member {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-6);
+  }
+
+  .member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-primary);
+  }
+
+  .member-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .member-name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+  }
+
+  .member-title {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--accent-primary);
+  }
+
+  .member-bio {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .member-link {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    align-self: flex-start;
+  }
+
+  .member-link:hover {
+    color: var(--accent-secondary);
+  }
+
+  .values-section {
+    padding: var(--space-16) 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .values-grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .value-card {
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    text-align: center;
+  }
+
+  .value-title {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .value-description {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (min-width: 768px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .about-hero {
+      padding: var(--space-24) 0 var(--space-20);
+    }
+
+    .mission-content {
+      max-width: 900px;
+    }
+  }
+</style>
